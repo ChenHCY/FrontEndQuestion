@@ -28,7 +28,7 @@ const obj = {
   key7: 12
 }
 
-//Solution 1: teacher explained in the course
+//Solution 1: teacher explained in the course ==》 理解这个
 //arrows function
 const fn = (x) => {
 	let res = [];
@@ -56,9 +56,9 @@ const fn2 = (x) => {
 		if(typeof element === "number"){ //check whther is number
 			result.push(element);
 		} else if(Array.isArray(element)){ //check whther is array
-			element.forEach(flattern);
+			element.forEach(flattern); // 1 
 		} else{ //check whether is object, then get new element and flattern it
-			Object.values(element).forEach(flattern);
+			Object.values(element).forEach(flattern); //2 
 		}
 	}
 	flattern(x); //call the named flattern function to flattern item x
@@ -66,3 +66,13 @@ const fn2 = (x) => {
 }
 
 console.log(fn2(obj));
+
+//1： element.forEach(flattern); 的意思就是：
+element.forEach(item => {
+    result = result.concat(fn2(item));
+});
+
+//2.  Object.values(element).forEach(flattern); 的意思就是
+Object.values(element).forEach((item) => {
+    result = result.concat(fn2(item));
+});
