@@ -20,6 +20,7 @@ or string without modifying the original.
 ==> array.slice(start, end) / const arr = [1, 2, 3, 4, 5]; 
 
 ==> const newArr1 = arr.slice(1, 3); // [2, 3] 
+
 ==> const newArr2 = arr.slice(-2); // [4, 5]
 
 start：提取的起始索引。如果为负，则它指定距数组末尾的偏移量。
@@ -31,9 +32,11 @@ This method modifies the original array and shifts all remaining elements one in
 
 在 JavaScript 中，该shift()方法用于移除和返回数组的第一个元素。此方法修改原始数组并将所有剩余元素下移一个索引。
 
-==> const arr = 
+==> const arr = [1, 2, 3, 4, 5]; 
+
 ==》 const firstElement = arr.shift(); // 1
-console.log(arr); // [2, 3, 4, 5]
+
+==》 console.log(arr); // [2, 3, 4, 5]
 
 # The difference in Array.shift() and Array.slice()
 Array.shift()在使用过程中会修改原始数组， / Array.slice()方法在不会修改原始数组
