@@ -1,6 +1,20 @@
 # FrontEndQuestion
 Practice Front-End Development Question
 
+# set() in JavaScript
+申明： const set = new Set(array); 直接把一个array[]加入到hashset中
+
+加入： push() ==> 修改原数组 ：array.push(4); 创建新数组，不修改原数组： const newArray = [...array, 4];
+
+检查是否含有：has() ==> 用来检查set()中是否含有特定的element
+
+# stack[] in JavaScript
+申明： const stack = []; ==》因为JavaScript中是没有stack()函数的，所以是使用数组来实现堆栈的数据结构
+
+stack() 是先进先出： 加入： push()   /   删除第一个元素：pop();  / 获取第一个元素但不删除：stack[stack.length - 1] 
+
+stack.join(''): stack中的所有元素组成一个字符串，然后输出
+
 # unshift() in JavaScript
 The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
 
