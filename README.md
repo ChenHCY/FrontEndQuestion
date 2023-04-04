@@ -1,6 +1,18 @@
 # FrontEndQuestion
 Practice Front-End Development Question
 
+# "for...in" and "for...of" in JavaScript
+在 JavaScript 中，有两种不同的方式来遍历数组的元素或对象的属性：循环for...in和for...of循环。
+
+"for...in": 用于遍历对象的属性, 使用此循环时，循环变量表示属性的名称，而不是值。
+
+const object = {a: 1, b: 2, c: 3};
+for (let key in object) {
+  console.log(key); // "a", "b", "c"
+  console.log(object[key]); // 1, 2, 3
+}
+
+
 # set() in JavaScript
 申明： const set = new Set(array); 直接把一个array[]加入到hashset中
 
