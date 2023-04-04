@@ -23,12 +23,32 @@ for (let value of array) {
 
 两者的区别就是："for...in"用于循环对象的属性，"for...of"用于循环可迭代对象的值（例如数组）。
 
-# set() in JavaScript
+# hashset() / Set() in JavaScript
 申明： const set = new Set(array); 直接把一个array[]加入到hashset中
 
 加入： push() ==> 修改原数组 ：array.push(4); 创建新数组，不修改原数组： const newArray = [...array, 4];
 
+删除： delete(number) ==> 删除set中的一个元素
+
 检查是否含有：has() ==> 用来检查set()中是否含有特定的element
+
+next()： 可以用来返回输出set() 中的下一个值 ==》next() 方法返回一个具有两个属性的对象：
+
+==> value，它包含序列中的下一个值；
+
+==> done，如果序列中没有更多值，则为 true，否则为 false。当没有更多值的时候，输出 undefined
+
+所以 `set.values().next().value` 是获取Set对象第一个值的简洁方法，因为该next()方法返回set()中的第一个值。
+
+# hashmap() / Map() in JavaScript
+
+在 JavaScript 中，相当于哈希映射数据结构的是对象Map。该Map对象保存键值对并记住键的原始插入顺序。
+
+==》 在JavaScript里面Map()的function: 加入： set(),  提取： get(), 检查Map对象是否包含特定键: has()
+
+map.set(num, (map.get(num) || 0 ) + 1) ==》用来统计arr里面每个 number的数量， 然后存入hashmap中
+
+==》 Hashmap(key, value)  ==> for(const key of map.keys()) ==> 提取遍历map的key part。
 
 # stack[] in JavaScript
 申明： const stack = []; ==》因为JavaScript中是没有stack()函数的，所以是使用数组来实现堆栈的数据结构
