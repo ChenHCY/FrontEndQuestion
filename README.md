@@ -11,7 +11,7 @@ Practice Front-End Development Question
 # stack[] in JavaScript
 申明： const stack = []; ==》因为JavaScript中是没有stack()函数的，所以是使用数组来实现堆栈的数据结构
 
-stack() 是先进先出： 加入： push()   /   删除第一个元素：pop();  / 获取第一个元素但不删除：stack[stack.length - 1] 
+stack() 是先进先出： 加入： push()   /   获取第一个元素并删除：pop();  / 获取第一个元素但不删除：stack[stack.length - 1] 
 
 stack.join(''): stack中的所有元素组成一个字符串，然后输出
 
