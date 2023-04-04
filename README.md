@@ -7,11 +7,21 @@ Practice Front-End Development Question
 "for...in": 用于遍历对象的属性, 使用此循环时，循环变量表示属性的名称，而不是值。
 
 const object = {a: 1, b: 2, c: 3};
+
 for (let key in object) {
   console.log(key); // "a", "b", "c"
   console.log(object[key]); // 1, 2, 3
 }
 
+"for...of": 循环用于遍历可迭代对象（例如数组）的值。使用此循环时，循环变量表示每个元素的值，而不是索引
+
+const array = [1, 2, 3];
+
+for (let value of array) {
+  console.log(value); // 1, 2, 3
+}
+
+两者的区别就是："for...in"用于循环对象的属性，"for...of"用于循环可迭代对象的值（例如数组）。
 
 # set() in JavaScript
 申明： const set = new Set(array); 直接把一个array[]加入到hashset中
