@@ -20,6 +20,8 @@ function removeChars(input) {
 
   for(let i = 0; i < input.length; i++){
     // input.charAt(i)  = input[i] 
+    //因为在JavaScript中没有stack()的数据结构，是通过array来实现的。所以没有peek()
+    //stack[stack.length - 1] 就是想要获取第一个元素但不删除 
     if(input.charAt(i) == 'c' && stack[stack.length - 1] == 'a'){
       stack.pop();
     } else if(input.charAt(i) != 'b'){
