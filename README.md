@@ -26,7 +26,7 @@ for (let value of array) {
 # hashset() / Set() in JavaScript
 申明： const set = new Set(array); 直接把一个array[]加入到hashset中
 
-加入： push() ==> 修改原数组 ：array.push(4); 创建新数组，不修改原数组： const newArray = [...array, 4];
+加入: add(number) ==> 加入一个number元素到set中
 
 删除： delete(number) ==> 删除set中的一个元素
 
@@ -41,6 +41,7 @@ next()： 可以用来返回输出set() 中的下一个值 ==》next() 方法返
 所以 `set.values().next().value` 是获取Set对象第一个值的简洁方法，因为该next()方法返回set()中的第一个值。
 
 # hashmap() / Map() in JavaScript
+申明： const map = new Map();
 
 在 JavaScript 中，相当于哈希映射数据结构的是对象Map。该Map对象保存键值对并记住键的原始插入顺序。
 
@@ -75,6 +76,12 @@ unshift()方法将一个或多个元素添加到数组的开头并返回数组�
 # String.includes() in JavaScript
 
 用来检查一个String中是否包含另外一个String, 有==》返回true / 没有==》返回false
+
+# Array.push() in JavaScript
+
+`Array.push()` 把一个number加入到array[]中
+
+==> 修改原数组 ：array.push(4); 创建新数组， /  不修改原数组： const newArray = [...array, 4];
 
 # Array / String.slice() in JavaScript
 
