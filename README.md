@@ -50,6 +50,16 @@ map.set(num, (map.get(num) || 0 ) + 1) ==》用来统计arr里面每个 number�
 
 ==》 Hashmap(key, value)  ==> for(const key of map.keys()) ==> 提取遍历map的key part。
 
+# .map(Number) in JavaScript
+
+在 JavaScript 中，该.map()方法用于通过对现有数组的每个元素应用函数来创建新数组。
+
+.map(Number)是 .map() 方法的一个特定用例，其中Number是将给定值转换为数字的内置对象。
+
+`.map(Number) `  ==> 将字符串值数组转换为数字值数组
+
+==》额外提示： 如果字符串数组里面存在非数字值，则转换后会在新array里面出现 NaN (Not a Number)
+
 # stack[] in JavaScript
 申明： const stack = []; ==》因为JavaScript中是没有stack()函数的，所以是使用数组来实现堆栈的数据结构
 
