@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Homework 3 Part 1</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/dc4678e3ee.js" crossorigin="anonymous"></script>
+    <!--CSS -->
+    <link rel="stylesheet" href = "./style.css">
+</head>
+
+<body>
+
+<header class = "header">
+    <nav class = "navbar">
+        <a href="#home">Home</a>
+        <a href="#search">Search</a>
+        <a href="#contact">Contact</a>
+        <a href="#login">Login</a>
+    </nav>
+</header>
+
+<div class="description">
+    <div class="row">
+        <div class="photo">
+            <img src="./photo.jpg" alt="">
+        </div>
+        
+        <div class="contentWrapper">
+            <div class="content">
+                <h2>Borussia Dortmund</h2>
+                <p>Ballspielverein Borussia 09 e. V. Dortmund, commonly known as Borussia Dortmund, 
+                    BVB, or simply Dortmund, is a German professional sports club based in Dortmund, North 
+                    Rhine-Westphalia. The club was founded on 19 December 1909 by a group of young men unhappy with 
+                    the Catholic church-sponsored Trinity Youth, where they played football under the stern and 
+                    unsympathetic eye of the local parish priest. The priest, Father Dewald was blocked at the door 
+                    when he tried to break up the organising meeting being held in a room of the local pub, Zum Wildschütz. </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="box">
+    <div class = "bank">
+        <div class="form">
+            <div class="form-left">
+                <form>
+                    <h3>Billing Address</h3>
+                    <i class="fa-solid fa-user"></i>
+                    <label for="full-name">Full Name</label><br>
+                    <input type ="text" id="full-name" placeholder=" Jhon M.Doe" size="30"><br>
+
+                    <i class="fa-solid fa-envelope"></i>
+                    <label for="email">Email</label><br>
+                    <input type ="text" id="email" placeholder=" jhon@example.com" size="30"><br>
+
+                    <i class="fa-solid fa-address-card"></i>
+                    <label for="address">Address</label><br>
+                    <input type ="text" id="address" placeholder=" 830 Hillview" size="30"><br>
+
+                    <i class="fa-solid fa-bank"></i>
+                    <label for="city">City</label><br>
+                    <input type ="text" id="city" placeholder=" Milipitas" size="30"><br>
+                    
+                    <div class = "double-input">
+                        <div class = "state">
+                            <label for="state">State</label><br>
+                            <input type ="text" id="state" placeholder=" CA" size="12"><br>
+                        </div>
+                        <div class = "zip">
+                            <label for="zip">Zip</label><br>
+                            <input type ="text" id="zip" placeholder=" 950325" size="14"><br>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="form-second">
+                <form>
+                    <h3>Payment</h3>
+                    <label>Accepted Card</label><br>
+                    <div class = "card">
+                        <i class="fa-brands fa-cc-visa"></i>
+                        <i class="fa-brands fa-cc-mastercard"></i>
+                        <i class="fa-brands fa-cc-discover"></i>
+                    </div>
+
+                    <label for="nameCard">Name On Card</label><br>
+                    <input type ="text" id="nameCard" placeholder=" John More Doe" size="30"><br>
+
+                    <label for="cardNumber">Credit Card Number</label><br>
+                    <input type ="text" id="cardNumber" placeholder=" 1111-1111-1111-1111" size="30"><br>
+
+                    <label for="month">Exp Month</label><br>
+                    <input type ="text" id="month" placeholder=" September" size="30"><br>
+                    
+                    <div class = "double-input">
+                        <div class = "year">
+                            <label for="year">Exp Year</label><br>
+                            <input type ="text" id="year" placeholder=" 2018" size="12"><br>
+                        </div>
+                        <div class = "cvv">
+                            <label for="cvv">CVV</label><br>
+                            <input type ="text" id="cvv" placeholder=" 111" size="14"><br>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class = "submit">
+            <input type="checkbox" id="address-checking" value="billingAddress">
+            <label for="address-checking">Shipping address same billling</label><br>
+
+            <button>Submit</button>
+        </div>
+    </div>
+
+    <div class = "shopping">
+        <table style="width:100%">
+            <tr>
+                <th class = "left-head">Cart</th>
+                <th class = "right-number"><i class ="fa-solid fa-cart-shopping">4</i></th>
+            </tr>
+
+            <tr>
+                <td class = "left-item">Item 1</td>
+                <td class = "right-price">$15</td>
+            </tr>
+
+            <tr>
+                <td class = "left-item">Item 2</td>
+                <td class = "right-price">$5</td>
+            </tr>
+
+            <tr>
+                <td class = "left-item">Item 3</td>
+                <td class = "right-price">$8</td>
+            </tr>
+
+            <tr>
+                <td class = "left-item">Item 4</td>
+                <td class = "right-price">$2</td>
+            </tr>
+
+            <tr>
+                <td style="border-top: 2px solid black;" class = "left-head">Total</td>
+                <td style="border-top: 2px solid black;" class = "right-price">$30</td>
+            </tr>
+        </table>
+    </div>
+
+
+</div>
+
+</body>
+</html>
