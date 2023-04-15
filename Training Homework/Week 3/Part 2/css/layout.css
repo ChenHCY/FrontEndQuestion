@@ -1,0 +1,128 @@
+/*Task 1: process bar*/
+.section1{
+    margin: 10px 10%;
+}
+
+/* # 覆盖 .*/
+.process-item{
+    background: gray;
+    width: 100%;
+}
+
+#process-bar{
+    width: 100%;
+    height: 30px;
+    background: green;
+    text-align: center;
+    border: black 2px solid;
+}
+
+.reload button{
+    margin: 10px;
+}
+
+/*Task 2: auto complete search from json datas*/
+
+/*Task 3: auto complete search*/
+.section3{
+    margin: 10px 10%;
+}
+
+.autocomplete{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.autocomplete h2{
+    font-size: 25px;
+    text-align: center;
+    margin: 10px;
+}
+
+.search-box input {
+    border: 1px solid #d4d4d4;;
+    border-radius: 5px;
+    padding-top: 5px;
+    height: 20px;
+    width: 15rem; 
+    overflow: hidden; /*用于控制超出元素尺寸的内容如何显示, hidden表示隐藏溢出尺寸的元素*/
+}
+
+.dropDownList{
+    width: 15rem;
+    align-items: start; /**/
+}
+
+.dropDownList ul{
+    padding: 1px;
+    margin: 5px;
+    cursor: pointer;
+    background: white;
+}
+
+.dropDownList ul:hover{
+    background-color: blanchedalmond;
+}
+
+/*task 4: Game Box*/
+.section4{
+    margin: 10px 10%;
+}
+
+.gameBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.gameBox h2{
+    font-size: 25px;
+    text-align: center;
+    margin: 10px;
+}
+
+.gameBox p{
+    font-size: 20px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.card-grid{
+    /*3 x 3 的网络格子*/
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px; /*网络格子中间的间距*/
+    width: 300px;
+    height: 300px;
+}
+
+.card-item{
+    display: flex;
+    font-size: 20px;
+    background-color: rgb(1, 64, 1);
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.open{
+    display: flex;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
