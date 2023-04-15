@@ -15,13 +15,13 @@ This is a way to change the text content of an element
 
 Example: ==> card.textContent = ''; - This instruction sets the textContent property of an element with the card identifier to an empty string.
 
-In JavaScript, you can change the text of an HTML element by manipulating its textContent or innerHTML properties.  
+In JavaScript, you can change the text of an HTML element by manipulating its `textContent` or `innerHTML` properties.  
 
 # setTimeout() in JS: 
 ==> The code inside the setTimeout function is a callback function that will execute after the specified delay has elapsed. 
 
 # Math.random() in JS:
-==>Example of random a number in 1-9:
+==> Example of random a number in 1-9:
 
   ==> const randomNumber = Math.floor(Math.random() * 9) + 1;
 
