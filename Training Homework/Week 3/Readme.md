@@ -1,3 +1,20 @@
+# flex-warp in CSS:
+`flex-wrap` flex-wrap 是一个 CSS 属性，用于控制当没有足够的空间将它们放在一行中时，flex 项目如何在 flex 容器中布局。
+
+==> 当水平空间不够时，flex 项目会垂直堆叠，避免溢出。
+
+The flex-wrap property accepts three possible values:
+
+a. `nowrap` (default): all flex items will be laid out on a single line, even if it means they overflow the container.
+
+b. `wrap`: flex items will be laid out in multiple lines if necessary. If there are more items than can fit on one line, the remaining items will wrap to a new line.
+
+==> 窗口缩小时，先显示左侧的元素块
+
+c. `wrap-reverse`: flex items will be laid out in multiple lines as in wrap but the lines will be laid out in reverse order.
+
+==> 窗口缩小时，先显示右侧侧的元素块
+
 # classList() in JS: 
 This is a way to add or remove a class from an element to change its visual appearance.
 
