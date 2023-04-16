@@ -1,3 +1,18 @@
+# addEventListener in JS
+在 JavaScript 中，`addEventListener()` 是一种允许您将事件侦听器添加到 HTML 元素的方法。
+
+==> 也就是当元素上发生特定事件（例如单击或按键）时将被调用的函数。
+
+==> For example: element.addEventListener(event, function, useCapture);
+
+    ==> `element` 是你要添加事件监听器的 HTML 元素 
+    
+    ==> `event` 是代表你要监听的事件的字符串（例如"click"或"keydown"）
+    
+    ==> `function` 是当事件发生时将被调用的函数。
+    
+    ==> `useCapture` 是一个可选的布尔值，指定是否应在事件传播阶段捕获事件。
+    
 # flex-warp in CSS:
 `flex-wrap` flex-wrap 是一个 CSS 属性，用于控制当没有足够的空间将它们放在一行中时，flex 项目如何在 flex 容器中布局。
 
@@ -34,14 +49,21 @@ Example: ==> card.textContent = ''; - This instruction sets the textContent prop
 
 In JavaScript, you can change the text of an HTML element by manipulating its `textContent` or `innerHTML` properties.  
 
-# setTimeout() in JS: 
-==> The code inside the setTimeout function is a callback function that will execute after the specified delay has elapsed. 
+# setTimeout() and setInterval()  in JS: 
+`setTimeout()`: The code inside the setTimeout function is a callback function that will execute after the specified delay has elapsed. 
+
+==> 允许您在经过指定的时间量后, 执行一次函数。 也就是可以延迟一些时间，然后执行当中的函数
+
+`setInterval()`:  `setInterval()` instead of executing a function once after a delay, it repeatedly executes the function at a specified interval.
+
+==> `setInterval()` 类似于 `setTimeout()`， 但`setInterval()`不是在延迟后执行一次函数，而是以指定的时间间隔重复执行该函数。
+
+相同点: setInterval() 和 setTimeout() 都返回一个唯一的 ID 值，可用于分别使用 clearInterval() 和 clearTimeout() 方法取消函数的执行。
 
 # Math.random() in JS:
 ==> Example of random a number in 1-9:
 
   ==> const randomNumber = Math.floor(Math.random() * 9) + 1;
-
 
 # Grid网络格子布局 in JS
 grid-template-columns: repeat(3, 1fr);
