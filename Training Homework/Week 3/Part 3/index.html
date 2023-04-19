@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Homework 3 Part 3</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+     <!--CSS -->
+     <link rel="stylesheet" href = "./layout.css">
+</head>
+<body>
+
+<div class = "section2">
+    <div class="searchBox">
+        <h2>Auto Serach User Information</h2>
+
+        <div class = "inputArea">
+            <input type="text" placeholder="Enter User name: "/>
+            <div class="dropDownList">
+                <ul></ul>
+            </div>
+            <p>User Name: <span id = "userName"></span></p>
+            <p>User Email: <span id = "userEmail"></span></p>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="section5">
+    <div class="timeArea">
+        <h2>Time Countdown</h2>
+        <p>15 Seconds: <span id = "second15"></span></p>
+        <div class = "start">
+            <button onclick="startfifteen()">Reload</button>
+        </div>
+
+        <p>30 Seconds: <span id = "second30"></span></p>
+        <div class = "start">
+            <button onclick="startThirty()">Reload</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- custom js file link  -->
+<script src="style.js"></script>
+
+
+</body>
+</html>
