@@ -1,10 +1,10 @@
 # FrontEndQuestion
 Practice Front-End Development Question
 
-# BigInt(`0b${binary number}`) in JavaScript
+# `BigInt(`0b${binary number}`)` in JavaScript
 使用 BigInt(`0b${binary number}`) 将里面的二进制数(binary numbers) 转化为 十进制数 (decimal numbers)
 
-Example: ==>  BigInt(`0b${a}`) /  BigInt(`0b${b}`)
+Example: ==>  `BigInt(`0b${a}`)` /  `BigInt(`0b${b}`)`
 
 # (decimal numbers).toString(2) in JavaScript
 使用 (decimal numbers).toString(2) 将一个十进制数 (decimal numbers)转回为二进制数(binary numbers)
