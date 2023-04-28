@@ -8,24 +8,19 @@ Currying 为实现多参函数提供了一个`递归降解`的实现思路—
 
 在 JavaScript 中实现 Currying: 为了实现只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数这句话所描述的特性。
 
-For Example: ==> 正常的function:
-
- `function add (x, y) {
-
-  return (x + y)
-
-}`
+For Example: 
+==》 正常的function:
+ function add (x, y) {
+   return (x + y)
+ }
 
 ==> 现在我们直接实现一个被 Currying 的 add 函数，该函数名为 curriedAdd():
 
-`function curriedAdd (x) {
-
+function curriedAdd (x) {
   return function(y) {
-
     return x + y
-
   }
-}`
+}
 
 1. curriedAdd(1)(3) === 4 // true
 
