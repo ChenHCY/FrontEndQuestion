@@ -1,6 +1,38 @@
 # FrontEndQuestion
 Practice Front-End Development Question
 
+# Currying Function in JS 柯里化的函数
+Currying 为实现多参函数提供了一个`递归降解`的实现思路—
+
+==> 把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数
+
+在 JavaScript 中实现 Currying: 为了实现只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数这句话所描述的特性。
+
+For Example: ==> 正常的function:
+
+ `function add (x, y) {
+
+  return (x + y)
+
+}`
+
+==> 现在我们直接实现一个被 Currying 的 add 函数，该函数名为 curriedAdd():
+
+`function curriedAdd (x) {
+
+  return function(y) {
+
+    return x + y
+
+  }
+}`
+
+1. curriedAdd(1)(3) === 4 // true
+
+2. var increment = curriedAdd(1) ==> increment(2) === 3 // true
+
+3. var addTen = curriedAdd(10) ==> addTen(2) === 12 // true
+
 # BigInt(`0b${binary number}`) in JavaScript
 使用 BigInt(`0b${binary number}`) 将里面的二进制数(binary numbers) 转化为 十进制数 (decimal numbers)
 
