@@ -48,21 +48,23 @@ Example: ==> (10).toString(2) // > '1010'
 在 JavaScript 中，有两种不同的方式来遍历数组的元素或对象的属性：循环for...in和for...of循环。
 
 `for...in`: 用于遍历对象的属性, 使用此循环时，循环变量表示属性的名称，而不是值。
-
+```JavaScript
 const object = {a: 1, b: 2, c: 3};
 
 for (let key in object) {
   console.log(key); // "a", "b", "c"
   console.log(object[key]); // 1, 2, 3
 }
+```
 
 `for...of`: 循环用于遍历可迭代对象（例如数组）的值。使用此循环时，循环变量表示每个元素的值，而不是索引
-
+```JavaScript
 const array = [1, 2, 3];
 
 for (let value of array) {
   console.log(value); // 1, 2, 3
 }
+```
 
 两者的区别就是：`for...in`用于循环对象的属性，`for...of`用于循环可迭代对象的值（例如数组）。
 
