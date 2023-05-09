@@ -167,10 +167,13 @@ Array.shift()在使用过程中会修改原始数组， / Array.slice()方法在
 ==> 数组过滤器
 
 The filter() method creates a new array filled with elements that pass a test provided by a function.
+
 ==> 该filter()方法创建一个新数组，其中填充了通过函数提供的测试的元素。
 
 The filter() method does not execute the function for empty elements.
+
 ==> 该filter()方法不执行空元素的功能。
 
 The filter() method does not change the original array.
+
 ==> 该filter()方法不会更改原始数组。
