@@ -75,12 +75,13 @@ var checkIfInstanceOf = function(obj, classFunction) {
     //遍历全部的obj
     while(obj !== null){
         //如果obj的constructor的构造函数class === 给定的class
-        if(obj.constructor === classFunction){
+        // Object.constructor 指的是Object本身的构造函数function /  classFunction is a function
+        if(obj.constructor === classFunction){ // 所以这里要使用 Object.constructor 和 classFunction 比较
             return true;
         }
 
         //移动 和 继续检查原型链
-        obj = Object.getPrototypeOf(obj); 
+        obj = Object.getPrototypeOf(obj);  // Object.getPrototypeOf(obj)用于获取具体实例（obj）的原型Prototype object，访问原型Prototype中定义的属性和方法。
     }
 
     return false;
