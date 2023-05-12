@@ -1,6 +1,36 @@
 # FrontEndQuestion
 Practice Front-End Development Question
 
+# Closure in JavaScript
+Closure(闭包): Closure is a feature that allows a function to access variables from its outer lexical scope. 
+==> 相当于一个function, 许函数从其外部词法范围访问变量的功能。
+
+在 JavaScript 中，闭包是一个强大的特性，即使在父函数执行完毕后，它也允许函数从父作用域中记住和访问变量。
+
+```JavaScript
+var createCounter = function(n) {
+    let sum = n - 1;
+    //函数引用了在同一作用域以及任何外部作用域中声明的所有变量
+    return countAddOne = () => {
+        sum += 1;
+        return sum;
+    };
+};
+
+const counter = createCounter(10)
+counter() // 10
+counter() // 11
+counter() // 12
+```
+
+所以在这个示例中，Function createCounter() 定义了一个内部function countAddOne()
+
+在function countAddOne(), 使用和访问了在createCounter()中定义的 变量sum
+
+所以即使在createCounter()执行完毕之后，the closure variable闭包变量 任然保留对于countAddOne()范围内变量值和function
+
+所以当继续call counter()时，我们任然可以访问countAddOne()然后记录sum的值 ==》 从而达成一个计时器的效果
+
 # Inheritance and the prototype chain in JavaScript
 Inheritance:  当谈到继承时，JavaScript 只有一种结构：对象。每个实例对象（object）都有一个私有属性（称之为 __proto__）指向它的构造函数的原型对象（prototype）
 
