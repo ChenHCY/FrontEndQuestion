@@ -1,6 +1,72 @@
 # FrontEndQuestion
 Practice Front-End Development Question
 
+# Inheritance and the prototype chain in JavaScript
+Inheritance:  当谈到继承时，JavaScript 只有一种结构：对象。每个实例对象（object）都有一个私有属性（称之为 __proto__）指向它的构造函数的原型对象（prototype）
+
+Prototype chain: 该原型对象也有一个自己的原型对象（__proto__），层层向上直到一个对象的原型对象为 null。==> 这就是原型链
+==> 根据定义，null 没有原型，并作为这个原型链中的最后一个环节。
+
+# instanceof in JavaScript
+`instanceof` 运算符用于检查一个object 是否属于 特定类 class 或构造函数function。
+
+方法：`object instanceof constructor` ==> Leetcode 2618. Check if Object Instance of Class
+这个用来判断一个对象（object）是否是特定构造函数（constructor）的实例。 它检查对象的原型链是否包含构造函数的原型。
+
+然后返回一个boolean的值：有：true, 没有：false
+
+```JavaScript
+function Person(name) {
+  this.name = name;
+}
+
+const person = new Person("John");
+
+console.log(person instanceof Person);       // true
+console.log(person instanceof Object);       // true
+console.log(person instanceof Array);        // false
+console.log(person instanceof Date);         // false
+```
+
+# Object.getPrototypeOf(obj) in JavaScript
+Object.getPrototypeOf() 方法用于直接访问或操作对象的原型Prototype。 
+
+==> 它允许您检查继承链或向原型添加属性和方法。
+
+Object.getPrototypeOf(obj)方法：该方法返回指定对象obj的原型Prototype。 它用于检索与 obj 关联的原型Prototype Object。 
+
+==> 原型是一个对象，它提供由构造函数或类的实例继承的属性和方法。
+```JavaScript
+function Person(name) {
+  this.name = name;
+}
+
+const person = new Person("John");
+
+console.log(Object.getPrototypeOf(person));  // Person {}
+console.log(Object.getPrototypeOf(person) === Person.prototype);  // true
+
+//`Object.getPrototypeOf(person)` 表示构造函数的原型person，并包含在Person构造函数中定义的属性和方法。
+```
+
+# Object.constructor in JavaScript
+Object.constructor 属性是对用于创建对象 obj 的构造函数的引用。 
+
+==> 它允许您从对象的实例访问构造函数。
+
+这个属性指的是Object本身的构造函数。 它是对用于创建 Object 构造函数的函数的引用, 换句话说，Object.constructor 是指 Object 本身。
+
+```JavaScript
+//Object.constructor指的是Function构造函数
+console.log(Object.constructor);  // [Function: Function]
+console.log(Object.constructor === Object);  // true
+````
+
+# 总结 Object.constructor 与 Object.getPrototypeOf(obj) 
+==》Object.constructor指的是Object本身的构造函数
+
+==》Object.getPrototypeOf(obj)用于获取具体实例（obj）的原型对象，访问原型中定义的属性和方法。
+
 # Currying Function in JS 柯里化的函数
 Currying 为实现多参函数提供了一个`递归降解`的实现思路—
 
