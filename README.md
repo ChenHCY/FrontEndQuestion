@@ -184,6 +184,17 @@ console.log(Object.constructor === Object);  // true
 
 ==》Object.getPrototypeOf(obj)用于获取具体实例（obj）的原型对象，访问原型中定义的属性和方法。
 
+# JSON.stringify() in JavaScript
+In JavaScript, the JSON.stringify() method is used to convert a JavaScript object or value into a JSON string representation. 
+==> It serializes the object or value, converting it into a string that can be stored or transmitted over a network.
+
+JSON.stringify() 方法用于将 JavaScript 对象或值转换为 JSON 字符串表示形式。 它序列化对象或值，将其转换为可以存储或通过网络传输的字符串。
+
+# join() in JavaScript
+The join() method is a useful way to convert an array into a string representation, with each element separated by a specified delimiter.
+
+join() 方法是一种将数组转换为字符串表示形式的有用方法，每个元素由指定的分隔符分隔。
+
 # Currying Function in JS 柯里化的函数
 Currying 为实现多参函数提供了一个`递归降解`的实现思路—
 
