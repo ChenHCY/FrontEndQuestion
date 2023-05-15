@@ -75,7 +75,7 @@ Debounce 去抖动的基本思想： 在调用函数之前等待最后一个事�
 
 如果在该时间段内发生另一个事件，计时器将重置，函数调用将再次延迟。这种方法确保函数仅在一系列快速事件发生后执行一次。
 
-在此题中，就是就是但事件触发去执行某个函数时，每次都要等待delay时间后，再去执行它，
+在此题中，就是当事件触发去执行某个函数时，每次都要等待delay时间后，再去执行它，
 
 如果在这个delay时间之内再次触发事件和对应的函数，那么需要重新计算等待时间，
 
@@ -89,15 +89,17 @@ Debounce 去抖动的基本思想： 在调用函数之前等待最后一个事�
  * @param {number} t milliseconds
  * @return {Function}
  */
+//fn是要去抖动的函数，t是调用该函数之前最后一个事件之后要等待的时间
 var debounce = function(fn, t) {
-    let timeId = null;
+    let timeId = null; //判断计时器是否需要开启
     return function(...args) {
-        if(timeId){
-            clearInterval(timeId);
-            timeId = null;
+        if(timeId){ //判断计时器是否需要开启，也就是事件有没有再次被触发
+            clearInterval(timeId); //需要重新计算等待时间，
+            timeId = null; //定时器关闭
         }
-        timeId = setTimeout (() => {
-            fn(...args);
-        }, t)
+      //重新开启一个定时器
+        timeId = setTimeout (() => { //使用setTimeout达到延迟delay时间后执行的效果
+            fn(...args); //执行需要Debounce的函数
+        }, t) //每次都要等待delay时间后
     }
 };
