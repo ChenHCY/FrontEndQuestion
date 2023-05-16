@@ -1,6 +1,16 @@
 # FrontEndQuestion
 Practice Front-End Development Question
 
+# Object.hasOwnProperty() in JavaScript
+`Object.hasOwnProperty()`属性：用来判断object中是否存在一个属性，没有就新建空数组，然后把数组元素放进去。
+
+```JavaScript
+object.hasOwnProperty(property)
+//object: The object to check for the presence of a property.
+//property: The name of the property to check.
+```
+如果指定的属性是对象的直接属性，则 hasOwnProperty() 方法返回 true，否则返回 false。
+
 # Object.keys() in JavaScript
 Object.keys() 方法用于检索给定obejct 自身的可枚举的 keys（属性）名称的数组。 
 
