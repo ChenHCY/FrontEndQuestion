@@ -74,7 +74,11 @@ input function is sum, fib, or factorial
  * @param {Function} fn
  */
 function memoize(fn) {
+ 
+ //HashMap key: String, 每次调用fn时的参数转换为一个String形式
+ //HashMap value: 每次调用fn得到的对应值 ==》这样把参数和值 结合了起来，方便查找和提取
     const map = new Map(); //使用hashMap来记录function和对应fn产生的值
+ 
     return function(...args) {
         //每次调用meoize function时，将传递的参数转换为字符串。
         //args.join(",") 就是将 args 数组的元素改变成单个字符串，然后使用","分隔。
