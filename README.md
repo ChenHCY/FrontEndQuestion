@@ -1,6 +1,23 @@
 # FrontEndQuestion
 Practice Front-End Development Question
 
+# Object.keys() in JavaScript
+Object.keys() 方法用于检索给定obejct 自身的可枚举的 keys（属性）名称的数组。 
+
+==》它以一个对象作为参数并返回一个包含对象属性名称的数组。
+
+```JavaScript
+const person = {
+  name: 'John',
+  age: 30,
+  occupation: 'Engineer'
+};
+
+const keys = Object.keys(person);
+
+console.log(keys);  // Output: ["name", "age", "occupation"]
+```
+
 # Debounce in JavaScript
 ==> 防抖动 / 去抖动
 
@@ -23,7 +40,8 @@ var debounce = function(fn, t) {
             clearInterval(timeId); //需要重新计算等待时间，
             timeId = null; //定时器关闭
         }
-      //重新开启一个定时器
+        
+      //每次遇见事件fn被触发 都需要开启一个新定时器
         timeId = setTimeout (() => { //使用setTimeout达到延迟delay时间后执行的效果
             fn(...args); //执行需要Debounce的函数
         }, t) //每次都要等待delay时间后
