@@ -33,12 +33,12 @@ curriedJoin(1, 2)(3) // '1_2_3'
 function curry(fn) {
   // your code here
   return function curriedFunc(...args){
-    //我们还使用 fn 函数的 length 属性来确定它期望的参数数量。
-    if(args.length >= fn.length){ //确定是否还有剩余的参数，直到接收所有参数
-      return fn(...args);
-    } else{ //直接接收所有参数，然后使用所有参数调用原始函数。
+    //首先判断接受的args(参数)长度是否大于等于fn需要的长度
+    if(args.length >= fn.length){ //如果确定是大于的
+      return fn(...args); //使用当前参数调用fn 得到结果
+    } else{ //如果args(参数)长度小于fn需要的长度
       return function(...moreArgs){
-        return curriedFunc(...args, ...moreArgs); //然后使用所有参数调用原始函数。
+        return curriedFunc(...args, ...moreArgs); //继续接受参数，直到达到标准。
       }
     } 
   };
@@ -47,14 +47,14 @@ function curry(fn) {
 //Solution 2:
 function curry(fn) {
   // your code here
-  // 我们使用 apply() 方法用给定的参数调用原始函数。
+  // 我们使用 apply()方法是一种函数方法，它允许您调用具有指定this值和数组或类数组对象作为参数的函数。
   return function curriedFunc(...args){
-    //我们还使用 fn 函数的 length 属性来确定它期望的参数数量。
-    if(args.length >= fn.length){ //确定是否还有剩余的参数，直到所有参数
-      return fn.apply(this, args);
-    } else{ //直接接收所有参数，然后使用所有参数调用原始函数。
+    //首先判断接受的args(参数)长度是否大于等于fn需要的长度
+    if(args.length >= fn.length){ //如果确定是大于的
+      return fn.apply(this, args);//使用当前参数调用fn 得到结果
+    } else{ //如果args(参数)长度小于fn需要的长度
       return function(...moreArgs){ 
-        return curriedFunc.apply(this, args.concat(moreArgs)); // 使用所有参数调用原始函数。
+        return curriedFunc.apply(this, args.concat(moreArgs));//继续接受参数，直到达到标准。
       }
     } 
   };
