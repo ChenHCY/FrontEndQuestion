@@ -1,6 +1,43 @@
 # FrontEndQuestion
 Practice Front-End Development Question
 
+# Array.apply() in JavScript
+
+在 JavaScript 中，apply()方法是一种函数方法，它允许您调用具有指定this值和数组或类数组对象作为参数的函数。
+```JavaScript
+function.apply(thisArg, [argsArray])
+//function: 要调用的函数。
+//thisArg：执行时要作为值传递给函数的this值。==》也表示当前的参数
+//argsArray：包含要传递给函数的参数的数组或类数组对象。==》 总的参数合集
+
+//Example:
+function greet(name, age) {
+  console.log(`Hello, ${name}! You are ${age} years old.`);
+}
+const person = {
+  name: 'John',
+  age: 30
+};
+greet.apply(person, ['Alice', 25]);  // Output: Hello, Alice! You are 25 years old.
+```
+
+# `${}` in JavaScript
+
+在 JavaScript 中，`${}` 是一种用于 String字符串 插值 或 模板文字的语法。它允许您通过将表达式或变量包含在 `${}`.
+
+```JavaScript
+//Example 1：
+const name = 'John';
+const age = 30;
+const message = `Hello, my name is ${name} and I am ${age} years old.`;
+console.log(message);  // Output: Hello, my name is John and I am 30 years old.
+//Example 2：
+const x = 10;
+const y = 5;
+const result = `The sum of ${x} and ${y} is ${x + y}.`;
+console.log(result);  // Output: The sum of 10 and 5 is 15.
+```
+
 # Object.hasOwnProperty() in JavaScript
 `Object.hasOwnProperty()`属性：用来判断object中是否存在一个属性，没有就新建空数组，然后把数组元素放进去。
 
@@ -248,10 +285,18 @@ In JavaScript, the JSON.stringify() method is used to convert a JavaScript objec
 
 JSON.stringify() 方法用于将 JavaScript 对象或值转换为 JSON 字符串表示形式。 它序列化对象或值，将其转换为可以存储或通过网络传输的字符串。
 
-# join() in JavaScript
+# Array.join() in JavaScript
 The join() method is a useful way to convert an array into a string representation, with each element separated by a specified delimiter.
 
 join() 方法是一种将数组转换为字符串表示形式的有用方法，每个元素由指定的分隔符分隔。
+
+```JavaScript
+array.join(separator)
+//array: 需要转化成字符串的数组
+//separator：用于分隔element的符号
+```
+
+join()方法遍历数组的元素并将每个元素转换为字符串。然后它连接这些字符串表示，用指定的分隔符分隔它们。如果没有提供分隔符，元素默认用逗号连接。
 
 # Currying Function in JS 柯里化的函数
 Currying 为实现多参函数提供了一个`递归降解`的实现思路—
@@ -285,7 +330,6 @@ var curry = function(fn) {
     };
 };
 ```
-
 
 # BigInt(`0b${binary number}`) in JavaScript
 使用 BigInt(`0b${binary number}`) 将里面的二进制数(binary numbers) 转化为 十进制数 (decimal numbers)
