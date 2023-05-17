@@ -63,6 +63,7 @@ function parameters explicitly defined
  * @param {Function} fn
  * @return {Function}
  */
+//Solution 1: 
 var curry = function(fn) {
     return function curried(...args) {
         //首先判断接受的args(参数)长度是否大于等于fn需要的长度
@@ -71,6 +72,24 @@ var curry = function(fn) {
         } else{//如果args(参数)长度小于fn需要的长度
             return function(...moreArgs){ //curry化
                 return curried(...args.concat(moreArgs))//继续接受参数，直到达到fn需要的长度。
+            }
+        }
+    };
+};
+
+
+//Solution2: 使用了 fn.apply(this, args) 方法
+var curry = function(fn) {
+    return function curried(...args) {
+        //首先如果传入的args参数长度与原函数fn定义的长度相等或更长，我们只用把参数传给fn调用
+        if(args.length >= fn.length){
+            //这里等于 return fn(...args);
+            return fn.apply(this, args); //apply()是把当前的参数传递给args参数 在fn中调用
+        } else{ //如果参数长度使小于原函数fn定义的长度
+            //需要继续接受参数，所以先返回另一个包装器 pass
+            return function(...moreArgs){
+                //重新应用 curried
+                return curried.apply(this, args.concat(moreArgs)); //将之前传入的参数与新的参数一起传入。
             }
         }
     };
