@@ -269,24 +269,23 @@ Currying 为实现多参函数提供了一个`递归降解`的实现思路—
 For Example: 
 
 ```JavaScript
-//正常的function:
- function add (x, y) {
-   return (x + y)
- }
-
-//现在我们直接实现一个被 Currying 的 add 函数，该函数名为 curriedAdd():
-function curriedAdd (x) {
-  return function(y) {
-    return x + y
-  }
-}
-
-1. curriedAdd(1)(3) === 4 // true
-
-2. var increment = curriedAdd(1) ==> increment(2) === 3 // true
-
-3. var addTen = curriedAdd(10) ==> addTen(2) === 12 // true
+var curry = function(fn) {
+    return function curried(...args) {
+        //首先如果传入的args参数长度与原函数fn定义的长度相等或更长，我们只用把参数传给fn调用
+        if(args.length >= fn.length){
+            //这里等于 return fn(...args);
+            return fn.apply(this, args); //apply()是把当前的参数传递给args参数 在fn中调用
+        } else{ //如果参数长度使小于原函数fn定义的长度
+            //需要继续接受参数，所以先返回另一个包装器 pass
+            return function(...moreArgs){
+                //重新应用 curried
+                return curried.apply(this, args.concat(moreArgs)); //将之前传入的参数与新的参数一起传入。
+            }
+        }
+    };
+};
 ```
+
 
 # BigInt(`0b${binary number}`) in JavaScript
 使用 BigInt(`0b${binary number}`) 将里面的二进制数(binary numbers) 转化为 十进制数 (decimal numbers)
