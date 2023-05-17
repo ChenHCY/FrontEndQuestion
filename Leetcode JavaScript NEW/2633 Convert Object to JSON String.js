@@ -68,14 +68,14 @@ var jsonStringify = function(object) {
         return '' + null;
     }
 
-    //第二种情况，当对象为string时, 不需要任何改变，直接把object加入到模板
+    //第二种情况，当对象为string时, 不需要任何改变，直接把object加入到JSON的String字符串中
     if(typeof object === 'string'){
         return `"${object}"`
     }
 
-    //第三种情况，当对象为number整数,boolean布尔值和empty空值时，把其改为String形式加入到模板
+    //第三种情况，当对象为number整数,boolean布尔值和empty空值时，把其改为String形式加入到JSON的String字符串中
     if(typeof object === 'number' || typeof object === 'boolean'){
-        return '' + object; //or object.toString() ==> 把其改为String形式加入到模板
+        return '' + object; //or object.toString() ==> 把其改为String形式加入到JSON的String字符串中
     } 
 
     //第四种情况，当对象为array的时候
@@ -83,18 +83,21 @@ var jsonStringify = function(object) {
         //提取这个Array里面的所有element, 然后进行迭代, 把结果存入一个arr[]中
         const arr = object.map((item) => jsonStringify(item));
         //然后把这个通过arr改为一个string类型，并且使用','分隔 =》使用array.join(',')
-        //然后把结果arr 加入到JSON模板中
+        //然后把结果arr 加入到JSON的String字符串中
         return `[${arr.join(',')}]`; 
     }
 
     //第五种情况，当对象为object的时候
     if(typeof object === 'object'){
         const itemArr = [];
-        //遍历提取这个对象中的每一个属性key值
+        //遍历提取这个对象中的每一个属性key值, 把结果存入itemArray[] 中
         for(const key of Object.keys(object)){
-            //把object的key值和value值，参入设定好的模板，key值需要改成string形式，value值保持不变
+            //把object的key值和value值，加入设定好的JSON的String字符串中
+            //key值需要改成string形式，value值保持不变
             itemArr.push(`"${key}":${jsonStringify(object[key])}`);
         }
-        return `{${itemArr.join(',')}}`;
+        //然后把这个通过itemArr 改为一个string类型，并且使用','分隔 =》使用itemArr.join(',')
+        //然后把结果 itemArr 加入到JSON的String字符串中
+        return `{${itemArr.join(',')}}`; // JSON的String字符串中
     } 
 };
