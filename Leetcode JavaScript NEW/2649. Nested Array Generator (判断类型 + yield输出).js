@@ -35,6 +35,7 @@ maxNestingDepth <= 10^5
  * @param {Array} arr
  * @return {Generator}
  */
+//Solution 1:  详细解法
 var inorderTraversal = function*(arr) {
   
     //首先使用flattenArray() function, 来展平Nested嵌套的数组arr[]
@@ -56,6 +57,17 @@ var inorderTraversal = function*(arr) {
     //使用arr.shift() + while-loop,  达到每次输出arr[]第一个number element的效果
     while(flatArr.length){
         yield flatArr.shift();
+    }
+};
+
+//Solution 2: 逻辑简写
+var inorderTraversal = function*(arr) {
+    for(let i = 0; i < arr.length; i++){
+        if(typeof arr[i] === 'number'){ //如果是数字，直接产生和调用
+            yield arr[i];
+        } else{ //如果当前的item 为array
+            yield* inorderTraversal(arr[i]); //迭代调用
+        }
     }
 };
 
