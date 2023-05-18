@@ -5,7 +5,8 @@
 
 此行为是由于 浮点数在计算机中的表示和存储方式引起的。
 
-浮点数使用固定位数以二进制格式存储。然而，大多数小数不能用二进制形式精确表示。在对这些数字执行算术运算时，这会导致小的舍入误差。
+//floating-point numbers are stored in binary format using a fixed number of bits, most decimal fractions cannot be precisely represented in binary form. 
+浮点数(floating-point numbers) 使用固定位数以二进制格式(binary format)存储。然而，大多数小数不能用二进制形式精确表示。在对这些数字执行算术运算时，这会导致小的舍入误差。
 
 0.1 和 0.2，它们的二进制表示是循环分数(recurring fractions)，这意味着它们具有无限重复的数字(infinitely repeating digits)。当这些循环分数加在一起时，结果是一个与小数略有不同的表示形式 0.3。
 
