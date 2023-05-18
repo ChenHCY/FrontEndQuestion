@@ -80,9 +80,9 @@ Promise.allSettled([promise1, promise2])
 /*ejected: Promise 2 rejected*/
 ```
 三个特殊的属性：
-`Status`: : 表示需要输出的Promise的状态，可以是'fulfilled'或'rejected'。
-`values`: 如果成功resolved promise, 输出Promise的value。否则，它是undefined。
-`reason`: 如果rejected promise，则输出Promsie中的reject message  否则，它是undefined
+  `Status`: 表示需要输出的Promise的状态，可以是'fulfilled'或'rejected'。
+  `values`: 如果成功resolved promise, 输出Promise的value。否则，它是undefined。
+  `reason`: 如果rejected promise，则输出Promsie中的reject message  否则，它是undefined
 
 # await and async function in JavaScript
 ==> await keyword is used within an `asyncasync function to pauseasync function.
