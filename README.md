@@ -544,6 +544,14 @@ This method modifies the original array and shifts all remaining elements one in
 const arr = [1, 2, 3, 4, 5]; 
 const firstElement = arr.shift(); // 1
 console.log(arr); // [2, 3, 4, 5]
+
+==> 也可能用来依次提取Array的第一个数字element 
+```JavaScript
+const arr = [1, 2, 3, 4, 5]; 
+while(arr.length >= 0){
+  let temp = arr.shift();
+  console.log(temp);
+} //Output: 1 2 3 4 5
 ```
 
 # The difference in Array.shift() and Array.slice()
