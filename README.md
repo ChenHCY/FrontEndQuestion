@@ -1,6 +1,35 @@
 # FrontEndQuestion
 Practice Front-End Development Question
 
+# Array.reduce() in JavaScript
+==> 用于将数组缩减为单个值。
+
+ Array.reduce()是 JavaScript 中的高阶方法，它遍历数组的元素并对每个元素应用callback回调函数，并在运行过程中累积结果。
+ 
+ 可用于通过遍历数组中的每个元素并应用带有两个参数的callback回调函数, => 将数组缩减为单个值：acc表示累积值， curr表示当前值
+
+```JavaScript
+array.reduce(callback, initialValue);
+```
+reduce() 工作原理：
+   `callback`：这是对数组的每个元素调用的函数。callback回调函数有四个参数：
+          ==> 1. `accumulator`：每次迭代更新的累积值。(acc表示累积值)
+          ==> 2. `currentValue`: 当前正在处理的元素。(curr表示当前值)
+          ==> 3. `currentIndex`:（可选）正在处理的当前元素的索引。
+          ==> 4. `array`: （可选）调用方法的原始数组
+   `initialValue`（可选）：它是累加器的初始值。如果提供，运算的结果从这个初始值开始。如果省略，则将数组的第一个元素用作初始值。
+ 
+==》简单来说，reduce()方法从左到右遍历数组，对每个元素执行callback回调函数。得到的结果成为下一次迭代的累加器的新值。最后，该reduce()方法返回最终的累加值。
+
+```JavaScript
+const array = [1, 2, 3, 4, 5];
+//accumulator 累计值， currentValue 当前值
+const sum = array.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+}, 0); // 0 表示initialValue 初始值
+console.log(sum); // Output: 15
+```
+
 # Promise.race() in JavaScript
 Promise.race()接受一个可迭代的Promise并返回一个新的Promise。 
 
@@ -484,7 +513,7 @@ map.set(num, (map.get(num) || 0 ) + 1) ==》用来统计arr里面每个 number�
 
 ==》 Hashmap(key, value)  ==> for(const key of map.keys()) ==> 提取遍历map的key part。
 
-# .map(Number) in JavaScript
+# Array.map(Number) in JavaScript
 
 在 JavaScript 中，该.map()方法用于通过对现有数组的每个元素应用函数来创建新数组。
 
