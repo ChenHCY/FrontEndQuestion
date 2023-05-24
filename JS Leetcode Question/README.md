@@ -1,3 +1,20 @@
+# Infinity in JavaScript
+在 JavaScript 中，值Infinity代表数学上的无穷大, 它是一个比任何其他数字都大的特殊数值。它通常用于表示超过数值范围上限的值。
+
+```JavaScript
+console.log(Infinity + 5);   // Output: Infinity
+console.log(-Infinity - 5);  // Output: -Infinity
+```
+您还可以使用 isFinite() 函数来检查值是否有限（Infinity 或 NaN）。 
+
+==> 对于 Infinity 和 NaN 返回 false， ||   对于任何其他有限数返回 true。
+
+```JavaScript
+console.log(isFinite(10));       // Output: true
+console.log(isFinite(Infinity)); // Output: false
+console.log(isFinite(NaN));      // Output: false
+```
+
 # floating-point numbers in JavaScript
 ==> why 0.1 + 0.2 == 0.30000000000000004 not 0.3?
 
