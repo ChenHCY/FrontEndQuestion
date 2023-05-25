@@ -1,6 +1,28 @@
 # FrontEndQuestion
 Practice Front-End Development Question
 
+# String.contains() in Java / String.includes() in JavaScript
+ 
+这两个function可以直接用来在一个string中查找是否存在另外一个string。
+
+==> String temp = "01"; ==> "0" + temp + "1" = "0011"
+
+```JavaScript
+//String.contains(): ==> boolean contains(CharSequence sequence)
+String str = "Hello, world!";
+boolean containsWorld = str.contains("world");
+System.out.println(containsWorld); // Output: true
+
+//String.includes(): ==> str.includes(searchString [, position]) ==> `position`参数指定字符串中开始搜索的位置
+const str = "Hello, world!";
+const containsWorld = str.includes("world");
+console.log(containsWorld); // Output: true
+```
+# What is a JavaScript event loop?
+The event loop is an architectural design pattern that allows code to run asynchronously on the javascript engines and makes it possible for code to execute blocking instructions first and when available execute asynchronous functions
+
+事件循环是一种架构设计模式，它允许代码在 javascript 引擎上异步运行，并使代码可以先执行阻塞指令，并在可用时执行异步函数
+
 # Throttle in JavaScript 
 ==> 节流
 
