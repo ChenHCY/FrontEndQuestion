@@ -7,10 +7,12 @@ It allows you to handle asynchronous operations in a more organized and readable
 
 Promise 是一个对象，表示异步操作的最终完成或失败及其结果值。 它允许您以更有组织性和可读性的方式处理异步操作，避免回调地狱并使错误处理和操作链接更容易。
 
+```
 Promise 对象具有三种状态： 
     1. Pending：初始状态。 承诺既没有实现也没有被拒绝。
     2. Fulfilled：异步操作成功完成，承诺得到履行。 这意味着承诺的值可用并且可以使用 then() 方法访问。
     3. Rejected：异步操作失败，promise被拒绝。 这意味着发生错误，并且承诺的值不可用。 可以使用 catch() 或 finally() 方法访问拒绝原因。
+```
 
 运行过程：Promise 是使用 Promise 构造函数创建的，它以call back() 回调函数作为参数。 
 
@@ -20,6 +22,7 @@ call back() 回调函数，通常称为 executor 执行器，有两个参数：r
 
 ==》从而更改 promise 的状态。
 
+**Coding Example**:
 ```JavaScript
 const myPromise = new Promise((resolve, reject) => {
   // Perform an asynchronous operation 
@@ -61,6 +64,7 @@ myPromise
 
 ==> 这种链接简化了顺序异步任务的处理。
 
+**Coding Example**:
 ```JavaScript
 myPromise
   .then(result => {
@@ -84,12 +88,14 @@ myPromise
 在这个例子中，每个 then() 调用对从前一个 promise 传递的值执行一个操作，创建一个 异步操作链 chain of asynchronous operations。
 
 # Promise.race() in JavaScript
-Promise.race()接受一个可迭代的Promise并返回一个新的Promise。 
+`Promise.race()` 接受一个 iterable可迭代 的Promise并返回一个新的Promise。 
 
-只要iterable 中的任何 promise 解决，这个新的 promise 就会解决（解决或拒绝）。 
+只要i terable可迭代 中的任何 promise 解决，这个新的 promise 就会解决（解决或拒绝）。 
 
-==> 输出的的结算值是第一个完成的Promise值。 `Promise.race(iterable)`
-
+```JavaScript
+Promise.race(iterable) //输出的的结算值是第一个完成的Promise值。
+```
+**Coding Example**:
 ```JavaScript
 const promise1 = new Promise((resolve, reject) => {
   setTimeout(() => {
@@ -113,8 +119,48 @@ Promise.race([promise1, promise2])
 ```
 在这个例子中，最先完成的是Promise 2, 根据Promise.race的规则， =》 最后输出的为'Promise 2 resolved'
 
+# Promise.all() in JavaScript
+`Promise.all()` 是 JavaScript Promise API 中的静态方法。它接受一个 iterable可迭代 的 Promise（通常是一个数组）作为输入，并返回一个新的 Promise
+
+==> 当可迭代中的所有 `Promise` 都已实现时，该 Promise 会被实现；
+
+==> 如果可迭代中的任何 `Promise` 被拒绝，则立即拒绝。
+
+==> 返回的 Promise 将有一个数组，其中包含所有输入 `Promise` 的解析值，其顺序与原始可迭代的顺序相同。
+
+```JavaScript
+Promise.all(iterable); // iterable： 一个包含 Promise 对象的数组（或任何其他可迭代对象）。
+```
+
+**Coding Example**: 
+```JavaScript
+const promise1 = Promise.resolve(1); // 解析一个promise的给定值
+const promise2 = new Promise((resolve) => setTimeout(() => resolve(2), 1000));
+const promise3 = fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(data => data.userId);
+
+Promise.all([promise1, promise2, promise3])
+  .then(([result1, result2, result3]) => {
+    console.log(result1); // 1
+    console.log(result2); // 2
+    console.log(result3); // 1 (data.userId from the fetched data)
+    console.log('All promises resolved successfully.');
+  })
+  .catch(error => {
+    console.error('An error occurred:', error);
+  });
+```
+`Promise.all()` 等待所有三个承诺解决（或拒绝）并返回一个新的承诺。
+
+==> 在.then()调用的回调中Promise.all()，所有三个 Promise 的解析值分别从数组解构为result1、result2和result3。然后，它们的值将记录到控制台。
+
+==> 如果可迭代拒绝中的任何承诺，Promise.all()将立即拒绝，并且.catch()块将处理错误。
+
+**** 总结来说： `Promise.all()` 当您有多个可以独立执行的异步操作并且您希望等待所有操作完成后再根据其结果执行另一个操作时，通常会使用该操作。
+
 # Promise.allSettled() in JavaScript
-Promise.allSettled()是一个 JavaScript 方法，它接受一个iterable 的Promise 并返回一个新的 Promsie。
+`Promise.allSettled()` 是一个 JavaScript 方法，它接受一个 iterable可迭代 的Promise 并返回一个新的 Promsie。
 
 ==> 必须要当中的所有Promsie都已解决时，无论它们是解决还是拒绝，这个new Promise 才会得到结果输出。
 
