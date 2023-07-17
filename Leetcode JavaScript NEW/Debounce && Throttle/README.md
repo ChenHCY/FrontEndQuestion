@@ -1,3 +1,42 @@
+# Debounce in JavaScript
+==> 防抖动 / 去抖动： 顾名思义 以免把一次事件误以为多次，敲键盘就是防抖最好的例子
+
+Debounce 去抖动的基本思想： 单位时间内事件触发会被重置，避免事件被误伤触发多次。可以比作电梯，只要有一个进去，就需要多等一会
+
+在调用函数之前，要等待最后一次调用fn结束后的一定时间。
+
+如果在该时间段内fn被再次调用，计时器将重置，重新计算延迟时间，并且之前的函数会被覆盖取消掉。
+
+==》 这种方法确保函数仅在一系列快速事件发生时，只执行一次。
+
+在此题(Leetcode 2627) 中，就是当事件触发去执行某个函数时，每次都要等待设定的delay时间后，再去执行它，
+
+如果在这个delay时间之内再次触发事件和对应的函数，之前的函数会被覆盖掉，并且需要重新计算等待时间，
+
+现实的例子
+```
+1. 登录，发短信 等按钮避免用户点击太快，以至于发送了多次请求，需要防抖
+2. 调整浏览器窗口大小时，resize改变尺寸过于频繁，照成计算了过多，所以需要进行防抖处理
+3. 文本编辑器的实时保存，当无任何更改操作一秒后进行保存
+```
+
+```JavaScript
+//fn是要去抖动的函数，t是fn设定需要等待的延迟时间
+var debounce = function(fn, t) {
+    let timeId = null; //判断计时器是否需要开启
+    return function(...args) {
+        if(timeId){ //判断计时器是否需要开启，也就是事件有没有再次被触发
+            clearInterval(timeId); //需要重新计算等待时间，
+            timeId = null; //定时器关闭
+        }
+        
+      //每次遇见事件fn被触发 都需要开启一个新定时器
+        timeId = setTimeout (() => { //使用setTimeout达到延迟delay时间后执行的效果
+            fn(...args); //执行需要Debounce的函数
+        }, t) //每次都要等待delay时间后
+    }
+};
+```
 # Throttle in JavaScript 
 ==> 节流：控制水的流量，控制事件发生的频率，比如：控制时间为1s发生一次，或者一分钟发生一次。
 
@@ -51,45 +90,6 @@ var throttle = function(fn, t) {
 };
 ```
 
-# Debounce in JavaScript
-==> 防抖动 / 去抖动： 顾名思义 以免把一次事件误以为多次，敲键盘就是防抖最好的例子
-
-Debounce 去抖动的基本思想： 单位时间内事件触发会被重置，避免事件被误伤触发多次。可以比作电梯，只要有一个进去，就需要多等一会
-
-在调用函数之前，要等待最后一次调用fn结束后的一定时间。
-
-如果在该时间段内fn被再次调用，计时器将重置，重新计算延迟时间，并且之前的函数会被覆盖取消掉。
-
-==》 这种方法确保函数仅在一系列快速事件发生时，只执行一次。
-
-在此题(Leetcode 2627) 中，就是当事件触发去执行某个函数时，每次都要等待设定的delay时间后，再去执行它，
-
-如果在这个delay时间之内再次触发事件和对应的函数，之前的函数会被覆盖掉，并且需要重新计算等待时间，
-
-现实的例子
-```
-1. 登录，发短信 等按钮避免用户点击太快，以至于发送了多次请求，需要防抖
-2. 调整浏览器窗口大小时，resize改变尺寸过于频繁，照成计算了过多，所以需要进行防抖处理
-3. 文本编辑器的实时保存，当无任何更改操作一秒后进行保存
-```
-
-```JavaScript
-//fn是要去抖动的函数，t是fn设定需要等待的延迟时间
-var debounce = function(fn, t) {
-    let timeId = null; //判断计时器是否需要开启
-    return function(...args) {
-        if(timeId){ //判断计时器是否需要开启，也就是事件有没有再次被触发
-            clearInterval(timeId); //需要重新计算等待时间，
-            timeId = null; //定时器关闭
-        }
-        
-      //每次遇见事件fn被触发 都需要开启一个新定时器
-        timeId = setTimeout (() => { //使用setTimeout达到延迟delay时间后执行的效果
-            fn(...args); //执行需要Debounce的函数
-        }, t) //每次都要等待delay时间后
-    }
-};
-```
 # What is the difference in throttle and Debounce in JavaScript?
 
 1. `Throttling`: Throttling limits the rate at which a function is called by setting a maximum threshold for function invocations within a specific time interval. 
