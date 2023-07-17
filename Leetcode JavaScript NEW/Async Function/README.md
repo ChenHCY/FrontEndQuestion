@@ -58,6 +58,46 @@ myPromise
 
 然后Handling the promise中，then()方法用于处理完成状态，catch()方法用于处理拒绝状态，finally()方法用于执行代码，标志primise已经完成，而不管承诺的状态如何。
 
+# Promise.resolve() in JavaScript
+`Promise.resolve()` 是 JavaScript Promise API 中的静态方法。它返回一个用给定值解析的 Promise 对象，或者如果给定值已经是一个 Promise，则返回一个已解析的 Promise。
+
+```JavaScript
+Promise.resolve(value) // value可以是任何有效的 JavaScript 值，包括 Promise。
+==> 这是创建已使用特定值解析的 Promise 的便捷方法。
+```
+**Coding Example 1**:
+```JavaScript
+const value = 42;
+const resolvedPromise = Promise.resolve(value);
+
+resolvedPromise.then(result => {
+  console.log(result); // Output: 42
+}); // 我们创建了一个resolvedPromise值为 的已解决的承诺42。当我们调用.then()Promise 时，解析值 ( 42) 会打印到控制台。
+```
+
+**Coding Example 2**:
+```JavaScript
+const innerPromise = new Promise(resolve => setTimeout(() => resolve('Inner Promise'), 1000));
+const resolvedPromise = Promise.resolve(innerPromise);
+
+resolvedPromise.then(result => {
+  console.log(result); // Output: Inner Promise
+});
+```
+
+**Coding Example 3**:
+```JavaScript
+const resolvedPromise = Promise.resolve();
+
+resolvedPromise.then(() => {
+  console.log('Promise resolved successfully.');
+});
+// Promise.resolve()调用时不带任何参数。它创建了一个没有特定值的已解决的 Promise。
+// 当我们调用 时.then()，回调将被执行，并将其打印 'Promise resolved successfully.'到控制台。
+```
+
+***总结来说： `Promise.resolve()` 在各种场景中都很有用，例如将非 Promise 值转换为 Promise、确保类似 Promise 的行为以及简化异步操作的处理。
+
 # chain of asynchronous operations in JavaScript
 
 异步操作链: Promises 允许使用 then() 方法将多个异步操作链接在一起。 每个 then() 调用都会返回一个新的 promise，它可用于执行其他操作。 
@@ -168,6 +208,7 @@ Promise.all([promise1, promise2, promise3])
 
 ==> The iterable parameter is an iterable object, such as an array or a string, that contains promises.
 
+**Coding Example**:
 ```JavaScript
 const promise1 = new Promise((resolve, reject) => {
   setTimeout(() => {
