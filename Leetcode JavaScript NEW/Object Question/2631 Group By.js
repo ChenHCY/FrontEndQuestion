@@ -81,12 +81,15 @@ fn returns a string
  */
 Array.prototype.groupBy = function(fn) {
     let res = {}; //输出的object
+  
     //遍历这个Array里面的每一个element
     for(const item of this){ 
-        const key = fn(item); //在结果中药按照什么排序
-        if(!res.hasOwnProperty(key)){ //检查res object中是否已经存在这个属性值
+        const key = fn(item); //按照res中要求按的排序，提取当前item的 属性key 值
+      
+        if(!res.hasOwnProperty(key)){ //检查res object中是否已经存在这个 属性key 值
             res[key] = []; //如果没有，则在res object中创建一个新的array
         } 
+      
         //已经存在这个属性key值，则把当前array里面的item 加入到这个key值里
         res[key].push(item)
     }
