@@ -96,7 +96,8 @@ resolvedPromise.then(() => {
 // 当我们调用 时.then()，回调将被执行，并将其打印 'Promise resolved successfully.'到控制台。
 ```
 
-***总结来说： `Promise.resolve()` 在各种场景中都很有用，例如将非 Promise 值转换为 Promise、确保类似 Promise 的行为以及简化异步操作的处理。
+**总结来说** 
+`Promise.resolve()` 在各种场景中都很有用，例如将非 Promise 值转换为 Promise、确保类似 Promise 的行为以及简化异步操作的处理。
 
 # chain of asynchronous operations in JavaScript
 
@@ -130,7 +131,7 @@ myPromise
 # Promise.race() in JavaScript
 `Promise.race()` 接受一个 iterable可迭代 的Promise并返回一个新的Promise。 
 
-只要i terable可迭代 中的任何 promise 解决，这个新的 promise 就会解决（解决或拒绝）。 
+只要 iterable可迭代 中的任何 promise 解决，这个新的 promise 就会解决（解决或拒绝）。 
 
 ```JavaScript
 Promise.race(iterable) //输出的的结算值是第一个完成的Promise值。
