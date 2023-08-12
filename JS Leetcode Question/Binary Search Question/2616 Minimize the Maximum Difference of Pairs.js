@@ -34,8 +34,11 @@ Constraints:
  * @return {number}
  */
 var minimizeMax = function(nums, p) {
+   //首先给nums array 进行排序，按照升序
     nums.sort((a, b) => a - b);
     let n =  nums.length;
+
+    //left right区域决定的差值，不是index位置
     let left = 0;
     let right = nums[n - 1] - nums[0];
 
@@ -43,6 +46,7 @@ var minimizeMax = function(nums, p) {
         let mid = Math.floor(left + (right - left) / 2);
         //console.log(mid);
         let pair = 0;
+        //统计有多少对的差值是小于当前mid值的
         for(let i = 0; i < n - 1; i++){
             if(nums[i + 1] - nums[i] <= mid){
                 pair += 1;
@@ -50,12 +54,13 @@ var minimizeMax = function(nums, p) {
             }
         }
 
+        //如果有p对以上的数 的差值是小于mid的，则移动right指针，缩小区间和mid值
         if(pair >= p){
             right = mid;
-        } else{
+        } else{ //如果没有p对，则移动左指针 增大mid值
             left = mid + 1;
         }
     }
 
-    return left;
+    return left; //最后输出left 指针的值
 };
