@@ -258,7 +258,8 @@ Promise.allSettled([promise1, promise2])
 ```
 
 # await and async function in JavaScript
-==> await keyword is used within an `asyncasync function to pauseasync function.
+==> `await` keyword is used within an `async function` to pause-async function.
+“await”关键字在“async function”中用于暂停异步函数。
 
 ==> 更简单的方法处理异步操作 ==> await 是用来暂停async function的运行， await只能在async函数内使用，表示这个函数始终返回一个Promise的结果
 
