@@ -33,6 +33,7 @@ Follow up: Could you solve it without converting the integer to a string?
  * @param {number} x
  * @return {boolean}
  */
+//Solution 1: Two pointer
 var isPalindrome = function(x) {
     let str = x.toString();
     var left = 0;
@@ -47,4 +48,26 @@ var isPalindrome = function(x) {
     }
 
     return true;
+};
+
+//Solution 2: 组成一个新的数字
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function(x) {
+   //首先 负数 或者以0结尾的数都无法组成回文
+   if(x < 0 || (x != 0 && (x % 10)) === 0){
+       return false;
+   }
+   //使用res从后往前组成一个新数，然后检查和x是否相等
+   let x2 = x;
+   let res = 0;
+
+   while(x2){
+       res = res * 10 + (x2 % 10);
+       x2 = Math.floor(x2 / 10);
+   }
+
+   return res === x;
 };
