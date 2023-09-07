@@ -1,9 +1,37 @@
 # JavaScript Letter character with ASCII code
 
 `charCodeAt()`: 把 String中的字母Letter character 转换成对应的ASCII code
-
- ==> const currCode = str.charCodeAt(i);
+```JavaScript
+const currCode = str.charCodeAt(i);
+```
 
 `fromCharCode()`： 把ASCII code 转换成 String形式的 字母 Letter character
+```JavaScript
+String.fromCharCode(encode); //encode is ASCII code
+```
+# 4 Telephone Number Validator 检测是否符合美国电话号的形式
+==> 使用正则表达式来检查String字符串是否符合美国电话号码的形式：
 
-==> String.fromCharCode(encode); //encode is ASCII code
+==> 包括带或不带 “1” 前缀的格式、区号周围带或不带括号的格式以及带各种分隔符（如空格、连字符或竖线）的格式。 它检查输入字符串是否符合这些有效格式之一。
+
+==> 正则表达式： /^(1\s?)?(\(\d{3}\)|\d{3})([-\s]?)\d{3}([-|\s]?)\d{4}$/
+
+重点： **\s** 表示这个位置可以存在空格  /   **?** 表示这里是可以选择（可以有 也可以没有） / **d{4}**: 用来匹配数字和字符
+
+· `^`: 将正则表达式 固定到 输入字符串 的 **开头**，确保它从开头匹配
+
+· `(1\s?)?`: 这部分表示 可以有( ... )? 来匹配 可能存在的国家区号的"1"， ==> 并且 **\s?** 表示后面可以选择存在 的空格。 
+
+    ==> 这允许电话号码以或不以“1”开头。
+    
+· `(\(\d{3}\)|\d{3})`: 这部分匹配电话号码的区号。 它允许两种格式：
+
+  ==> `\(\d{3}\)`:  匹配括号内的区号，例如“(555)”。
+  
+  ==> `\d{3}`: 匹配不带括号的区号，例如“555”。
+
+· `([-|\s]?)`: 此部分匹配电话号码前三位数和后四位数之间的可选分隔符。 它与之前的分隔符类似，允许使用连 `字符-`、`竖线 |` 或 `空白字符 \s` 以及 ？ 使其成为可选的。
+
+· `\d{4}`: 匹配电话号码的最后四位数字。
+
+· `$`: 将正则表达式 固定到 输入字符串 的 **末尾**，确保它匹配到末尾
