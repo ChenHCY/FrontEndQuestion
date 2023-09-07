@@ -1,4 +1,17 @@
-# JavaScript Letter character with ASCII code
+# 1 Palindrome Checker 判断字符串是否回文
+==> 用来保留一个字符串中的字母和数字
+
+· `/`: 这是正则表达式文字的起始分隔符
+
+· `[^a-zA-Z0-9]`: 这是用方括号 [] 括起来的实际正则表达式模式。 它是一个字符类，匹配小写字母 (a-z)、大写字母 (A-Z) 或数字 (0-9) 范围之外的任何字符。 换句话说，它匹配任何不是字母数字字符的字符。
+    ==> `^`: 插入符号 ^ 用作方括号 ([]) 内的**否定运算符**。 它指示 模式 应 匹配 **不属于** 以下字符类的任何字符。
+
+· `/`: 这是正则表达式文字的结束分隔符。
+
+· `g`: 这是正则表达式末尾的一个标志，代表 **全局**。 它指示 正则表达式 应搜索输入字符串中出现的所有模式，而不是在第一个匹配后停止。
+
+# 3 Caesars Cipher 字母和ASCII code的转换
+JavaScript Letter character with ASCII code
 
 `charCodeAt()`: 把 String中的字母Letter character 转换成对应的ASCII code
 ```JavaScript
