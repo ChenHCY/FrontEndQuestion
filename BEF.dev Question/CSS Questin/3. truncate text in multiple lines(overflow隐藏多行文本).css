@@ -1,0 +1,27 @@
+/* 3. truncate text in multiple lines(with ellipsis)
+
+Just like 2. truncate text in one line(with ellipsis), please do the same for max 3 lines.
+
+1.short text(1 line)
+
+2.short text (2 lines)
+
+3.3 lines(no overflow)
+
+4. more than 3 lines（overflow）
+*/
+
+.max-three-lines {
+  /* your code here */
+  /*-webkit-box 是一个旧的Webkit浏览器 (早期版本的Chrome和Safari) 用于创建弹性布局的属性之一*/
+  /*现在基本不用了，创建弹性布局 主要使用flex and grid*/
+  display: -webkit-box;
+
+  /*指定弹性容器中子元素的排列方向: 水平方向（horizontal）或 垂直方向（vertical）。*/
+  -webkit-box-orient: vertical;
+
+  -webkit-line-clamp: 3; /*第三行开始截断*/
+
+  overflow: hidden;  /*隐藏超出限制的文本*/
+  text-overflow: ellipsis;   /* text文本溢出,显示省略号 */
+}
