@@ -1,0 +1,24 @@
+/*Leetcode 2. truncate text in one line(with ellipsis)
+
+Truncate text in one line, if needed add ellipsis.
+
+1.When no overflow
+Hi, this is fairly long piece of text from BFE.dev
+
+2.when there is need to truncate, add ellipsis
+Hi, this is fairly long piece of text from BF...
+
+*/
+
+.one-line {
+  /* your code here */
+
+  /*white-space: 是用来控制文本元素内部空白字符 nowrap强制限定在一行*/
+  white-space: nowrap;
+
+  /*隐藏超出范围的text文本*/
+  overflow: hidden;
+  
+  /* text文本溢出,显示省略号 */
+  text-overflow: ellipsis;
+}
