@@ -76,7 +76,6 @@ The HTML structure is something like
 }
 
 .modal {
-  /*改变主轴*/
   display: grid;
 
   /*width of 300px and total max height 300px*/
