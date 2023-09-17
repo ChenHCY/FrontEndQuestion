@@ -1,0 +1,32 @@
+/* 7. a row
+
+Suppose we have a row structured as below:
+
+<div class="row"></div>
+
+Please complete the CSS according to following requirements:
+
+    1. height 50px 
+    2. set background to #eee, but if there are adjacent rows, set even rows' background to #ddd
+    3. set 1px border on top & bottom with color #ccc, but if there are adjacent rows, adjacent borders should be collapsed into one
+
+if you have to decide which row to dispplay both top and bottom border, add it to first row, ref
+*/
+
+/*your code here*/
+.row{
+  height: 50px; /*1. height 50px*/
+  width: 100%; /*设定高度*/
+  background-color: #eee; /*单数行的颜色为#eee*/
+  border-bottom: 1px solid #ccc; /*每次设定底部边框的类型和颜色*/
+}
+
+/*因为如果存在相邻行，则边框会发生合并，所以只用设定第一行的头部边框颜色和类型*/
+.row:first-child{
+  border-top: 1px solid #ccc;
+}
+
+/*偶数行的颜色设定为 #ddd*/
+.row:nth-child(even){
+  background-color: #ddd;
+}
