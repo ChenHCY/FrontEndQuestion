@@ -1,0 +1,60 @@
+/* 5. modal with max height
+
+Let's create a modal
+
+· it has header(fixed height: 50px) and stretching body
+· width of 300px and total max height 300px
+· centered in viewport
+· need mininum space of 30px to viewport top and bottom.
+
+
+The HTML structure is something like
+<div class="modals">
+  <div class="modal">
+    <div class="modal-header"></div>
+    <div class="modal-body"></div>
+  </div>
+</div>
+
+*/
+
+.modals {
+  /*占据整个屏幕*/
+  width: 100%;
+  height: 100%;
+  
+  /*flex 布局 居中*/
+  display: flex;
+  justify-content: center; /*主轴居中*/
+  align-items: center; /*侧轴居中*/
+
+  /*need mininum space of 30px to viewport top and bottom.*/
+  padding: 30px 0; /*头部 底部 30px的间距*/
+}
+
+.modal {
+  /*改变主轴*/
+  display: flex;
+  flex-direction: column;
+  
+  /*width of 300px and total max height 300px*/
+  width: 300px; //设定宽度
+  height: 100%; /*height的高度会随着改变*/
+  max-height: 300px; /*设定最大的height*/
+}
+
+.modal-header {
+  background-color: #f44336;
+  width: 100%; /* modal-header的宽度完全填充modal */
+  
+  /*flex-grow：0 不能扩大， flex-shrink：0 不能缩小， flex-basis： 50px 大小初始值*/
+  flex: 0 0 50px;
+}
+
+.modal-body {
+  background-color: #2973af;
+  width: 100%; /*modal-body的宽度完全填充modal */
+
+  /* flex: 1 简写 => flex-grow：1 自动扩大， flex-shrink：1 自动缩小， flex-basis： 0% 自动填充剩余，如果多个flex: 1 则平均分配大小 */
+  flex: 1; /*填充剩余所用部分*/
+}
