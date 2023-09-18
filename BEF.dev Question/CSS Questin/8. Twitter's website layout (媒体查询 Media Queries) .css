@@ -1,0 +1,70 @@
+/* 8. Twitter's website layout
+
+Open Twitter's website and change the window size, you'll notice that layout changes responsively.
+
+Let's do something similar in this problem, suppose we have HTML structure as below.
+
+<div class="container">
+  <div class="left">left</div>
+  <div class="middle">middle</div>
+  <div class="right">right</div>
+</div>
+
+Now please complete the CSS to satisfy following requirement
+
+      1. when viewport width is not enough, set left column to 40px wide and middle column to stretching.
+      2. middle column has maximum width of 240px
+      3. when there is enough space, show right column which has width of 120px
+      4. if there is more space, set left column to 80px
+      5. when right column is visible, set minimum 10px space horizontally to the viewport border
+
+It is a bit hard to explain clearly, but following screenshots might be easier to understand.
+*/
+
+.container {
+  height: 150px;
+  /*flex 布局*/
+  display: flex;
+  justify-content: center; /*主轴居中*/
+  align-items: center; /*侧轴居中*/
+  line-height: 150px; /*字体的行高*/
+  text-align: center; /*字体的居中*/
+}
+
+.left {
+  background-color: #eee;
+  width: 40px; /*当没有足够空间，left区域最小宽度为40px*/
+}
+
+.middle {
+  background-color: #ddd;
+  flex: 1; /*填充剩余部分*/
+  max-width: 240px; /*middle 区块的最大宽度 240px*/
+}
+
+.right {
+  display: none; /*小于420px不显示*/
+  background-color: #eee;
+  width: 120px; /*right区块的宽度120px*/
+}
+
+/*使用 媒体查询（Media Queries）进行视图改变*/
+/*当有足够空间时（大于420px），显示right区块*/
+@media only screen and (min-width: 420px){
+  .right {
+    display: grid;
+  }
+
+  /*当right区块可以显示的时候，设定外边距为10px*/
+  .container {
+    padding: 0 10px;
+  }
+}
+
+/*当有更多空间时，改变left的宽度到80px*/
+@media only screen and (min-width: 460px){
+  .left {
+    width: 80px;
+  }
+}
+
