@@ -1,0 +1,21 @@
+/* 10. golden-ratio rectangle
+
+Let's create a golden-ratio rectangle, which means width/height = 1.618.
+
+This rectangle should have the fixed ratio even when width changes.
+
+<div class="golden-ratio"></div>
+*/
+
+.golden-ratio {
+  background-color: #ccc;
+  /*aspect-ratio 是CSS中的一个属性，它用于控制元素的宽高比*/
+  aspect-ratio: 1.618;
+}
+
+/* 
+aspect-ratio属性通常用于块级元素，如<div>、<img>、<iframe>
+
+aspect-ratio属性的主要用途是确保元素保持指定的宽高比，而不会受到内容或容器大小的影响
+
+*/
