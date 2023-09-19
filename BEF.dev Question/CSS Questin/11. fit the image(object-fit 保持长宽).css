@@ -1,0 +1,15 @@
+/* 11. fit the image
+
+Suppose we have following image of ratio 1:4
+Now in an HTML structure like below, please fit the image to the container div, just as if it is used as container's background-image with background-size:cover.
+
+<div>
+  <img class="image" src="..."/>
+</div>
+*/
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /*保持图片或者视频元素的长宽比，不会让其变形*/
+}
