@@ -35,10 +35,15 @@ array.reduce(callback, initialValue);
 ```
 reduce() 工作原理：
    `callback`：这是对数组的每个元素调用的函数。callback回调函数有四个参数：
+          
           ==> 1. `accumulator`：每次迭代更新的累积值。(acc表示累积值)
+          
           ==> 2. `currentValue`: 当前正在处理的元素。(curr表示当前值)
+          
           ==> 3. `currentIndex`:（可选）正在处理的当前元素的索引。
+          
           ==> 4. `array`: （可选）调用方法的原始数组
+   
    `initialValue`（可选）：它是累加器的初始值。如果提供，运算的结果从这个初始值开始。如果省略，则将数组的第一个元素用作初始值。
  
 ==》简单来说，reduce()方法从左到右遍历数组，对每个元素执行callback回调函数。得到的结果成为下一次迭代的累加器的新值。最后，该reduce()方法返回最终的累加值。
