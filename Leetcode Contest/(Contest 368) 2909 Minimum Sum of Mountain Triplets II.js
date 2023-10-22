@@ -43,7 +43,7 @@ Constraints:
 // Space: O(n) ==> 创建了两个n长度的数组储存 左右部分的最小值
 
 
-/ 找到总和最小的三元数组，i < j < k && nums[i] < nums[j] and nums[k] < nums[j]
+// 找到总和最小的三元数组，i < j < k && nums[i] < nums[j] and nums[k] < nums[j]
 // 所以我们找到每个index点 左边的最小值 和 右边的最小值
 // 然后再次遍历，计算出总和的最小值
 var minimumSum = function(nums) {
