@@ -29,6 +29,13 @@ const sortLevels = Object.keys(groupUsers).sort((a, b) => Number(a) - Number(b))
 sortLevels.forEach(level => {
   console.log(`Level ${level}`);
   groupUsers[Number(level)].forEach(user => {
-    console.log(`${user}`);
+    let currNum = ""; // find the number index of each User
+    for(let i = 0; i < user.length; i++){
+      // judge and find the number of each user
+      if(!isNaN(Number(user[i]))){
+        currNum += user[i];
+      }
+    }
+     console.log(`User ${currNum}`);
   });
 });
