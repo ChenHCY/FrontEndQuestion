@@ -22,8 +22,16 @@ const sortLevels = Object.keys(groupUsers).sort((a, b) => a - b);
 
 // 3. Display render the all level with each user
 sortLevels.forEach(level => {
-  console.log(`Level ${level}`);
+  console.log(`Level ${level}`); //依照格式输出
+  
   groupUsers[level].forEach(user => {
-    console.log(`${user}`);
-  })
+    let currNum = ""; //记录每个User的编号
+    for(let i = 0; i < user.length; i++){
+      if(!isNaN(Number(user[i]))){ //判断这个字符是不是数字
+        currNum += user[i];
+      }
+    }
+    console.log(`User ${currNum}`); //依照格式输出
+  };
+  
 });
