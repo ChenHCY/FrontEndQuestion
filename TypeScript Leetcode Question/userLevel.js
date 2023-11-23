@@ -16,9 +16,9 @@ for(let i = 0; i < userArr.length; i++){
   // 检查groupUsers是否已经存在了这个级别，如果是的，hasNot会直接得到对应的array，用在后面add 
   const hasNot = groupUsers.find(item => item.level === currLevel);
   
-  if(hasNot){
+  if(hasNot){ //已经有这个级别的空间
     hasNot.users.push(userArr[i].User);
-  } else{
+  } else{ //给这个级别开空间，并把当前user name放入记录
     groupUsers.push({level: currLevel, users: [userArr[i].User]});
   }
 }
@@ -30,19 +30,13 @@ const sortLevels = groupUsers.sort((a, b) => a.level - b.level);
 sortLevels.forEach(groupItem => {
   console.log(`Level ${groupItem.level}`); //依照格式输出
   groupItem.users.forEach(user => {
-
-    let currNum = ""; //记录每个User的编号
-    for(let i = 0; i < user.length; i++){
-      if(!isNaN(Number(user[i]))){ //判断这个字符是不是数字
-        currNum += user[i];
-      }
-    }
+    let currNum = user.replace(/\D/g, ''); // Extracting numbers from the User string ==> 提取一个字符串中的所有数字
     console.log(`User ${currNum}`); //依照格式输出
   })
 });
 
 
-// Solution 2: Used reduce function() 来根据条件 合并累积 ***********************************************
+// Solution 2: Used reduce function() 来根据条件 合并累积 *****************************************************************
 // 1. travser all the element and add them toegther with same level
 const groupUsers = userArr.reduce((map, user) => {
   const currLevel = user.Level;
