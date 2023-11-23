@@ -7,7 +7,7 @@ const userArr = [
 ];
 
 // Solution 1: Not use reduce function  ***********************************************************
-// 1. travser all the element and add them toegther with same level
+// 1. trasver all the elements and add them together with same level
 let groupUsers = [];
 
 for(let i = 0; i < userArr.length; i++){
@@ -16,10 +16,10 @@ for(let i = 0; i < userArr.length; i++){
   // 检查groupUsers是否已经存在了这个级别，如果是的，hasNot会直接得到对应的array，用在后面add 
   const hasNot = groupUsers.find(item => item.level === currLevel);
   
-  if(hasNot){ //已经有这个级别的空间
-    hasNot.users.push(userArr[i].User);
-  } else{ //给这个级别开空间，并把当前user name放入记录
-    groupUsers.push({level: currLevel, users: [userArr[i].User]});
+  if(hasNot){
+    hasNot.userNameList.push(userArr[i].User);
+  } else{
+    groupUsers.push({level: currLevel, userNameList: [userArr[i].User]});
   }
 }
 
@@ -29,8 +29,8 @@ const sortLevels = groupUsers.sort((a, b) => a.level - b.level);
 // 3. Display render the all level with each user
 sortLevels.forEach(groupItem => {
   console.log(`Level ${groupItem.level}`); //依照格式输出
-  groupItem.users.forEach(user => {
-    let currNum = user.replace(/\D/g, ''); // Extracting numbers from the User string ==> 提取一个字符串中的所有数字
+  groupItem.userNameList.forEach(user => {
+    let currNum = user.replace(/\D/g, ''); // Extracting numbers from the User string
     console.log(`User ${currNum}`); //依照格式输出
   })
 });
