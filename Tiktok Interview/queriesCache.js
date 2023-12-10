@@ -27,26 +27,26 @@ queries = [5311088, 5299890];
 
 function cacheQueries(data, queries) {
     let res = [];
-    data.sort((a, b) => a[0] - b[0]);
-
     let n = data.length;
     let q = queries.length;
+
+    // 找到data中的起始时间点
+    data.sort((a, b) => a[0] - b[0]);
     let start = data[0][0];
-    let end = 0;
-
-    // 找到总的截止时间点
-    for(let i = 0; i < data.length; i++){
-        end = Math.max(data[i][0] + data[i][1], end);
-    }
+ 
+    // 找到data中的截止时间点
+    data.sort((a, b) => (a[0] + a[1]) - (b[0] + b[1]));
+    let end = data[n-1][0] + data[n-1][1];
 
 
-    // 建立差分数组
+    // 建立差分数组，来找到每个时间点正在进行的缓存数量
     let diff = new Array(end + 1).fill(0);
     for(let d of data){
         let s = d[0];
         let e = d[0] + d[1];
-        diff[s] += 1;
-        diff[e] -= 1;
+
+        diff[s] += 1; //有缓存在进行
+        diff[e] -= 1; //有一个缓存结束
     }
 
 
@@ -62,10 +62,7 @@ function cacheQueries(data, queries) {
     for(let q of queries){
         res.push(currCache[q]);
     }
-
-
     return res;
 }
-
 
 console.log(cacheQueries(data, queries));
