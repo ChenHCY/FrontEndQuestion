@@ -1,4 +1,4 @@
-//找到完全没有障碍物的行和列
+//find the row and column can move it
 
 const board1 = [['+', '+', '0', '+', '+', '0'],
                 ['+', '+', '0', '0', '0', '0'],
