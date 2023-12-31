@@ -1,4 +1,4 @@
-//给定一个起始点，找到通过borad的最短路径的 离开位置
+//given a board and a start position, find the minimum path exit point
 const board1 = [['+', '+', '+', '+', '+', '+', '+', '0', '0'],
                 ['+', '+', '0', '0', '0', '0', '0', '+', '+'],
                 ['0', '0', '0', '0', '0', '+', '+', '0', '+'],
