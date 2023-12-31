@@ -1,4 +1,11 @@
-//find the row and column can move it
+/*find the all the row and column without obstacle
+
+board1 = [['+', '+', '0', '+', '+', '0'],
+          ['+', '+', '0', '0', '0', '0'],
+          ['0', '0', '0', '+', '+', '0'],
+          ['0', '0', '0', '0', '0', '0']];
+Output: Row: [3] Column: [2, 6]
+*/
 
 const board1 = [['+', '+', '0', '+', '+', '0'],
                 ['+', '+', '0', '0', '0', '0'],
