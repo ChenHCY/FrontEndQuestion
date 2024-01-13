@@ -18,7 +18,7 @@ console.log(add(2)(5) === 7);
 console.log(add(2)(5, 1) === 7);
 
 
-/* Q2:  字符串中添加 + or - 实现总值等于100*/
+/* Q2:  字符串中添加 + or - 实现总值等于100 ==> 282. Expression Add Operators 的变形*/
 const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const target = 100;
 
