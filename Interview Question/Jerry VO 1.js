@@ -1,6 +1,6 @@
 /* Given a binary array nums, return the maximum number of consecutive 1's in the array 
 if you can flip at most one 0.
-
+==》 Leetcode 1004 的 变形
 eg.1
 
 nums = [1, 0, 1, 1, 0]
