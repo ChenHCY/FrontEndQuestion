@@ -22,6 +22,11 @@ Output: 101,111,121,202
 // String str = add new dighit into mid of the length
 // 
 
+// output = given a i, and intLength. 
+// i = 1  100 01  i = 2 10101 i = 3 10201  i = 11 110
+// For example: intLength = 5,  10001 10101 10201.
+
+
 //main function O(n * intLength) n is th length of queries
 const queries1 = [1,2,3,10];
 const intLength1 = 2;
@@ -33,14 +38,14 @@ const intLength = 3;
 //time: O(n) n is the inLengths, also means the length of digits
 const createPalindromes = (i, intLength) => {
     let mid = Math.ceil(intLength / 2); //2
-    let num = Math.pow(10, mid - 1) + i; // 10
+    let base = Math.pow(10, mid - 1) + i; // 10
 
     //create the palidrome
-    let str = num.toString(); 
+    let str = base.toString(); 
     let resP;
-    if(intLength % 2 == 0){
+    if(intLength % 2 == 0){ //如果回文长度为双数，只需要反转前半部分减去中间一位
         resP = str + str.slice(0, str.length).split('').reverse();
-    } else {
+    } else {//如果回文长度为单数，反转全部前半部分
         resP = str + str.slice(0, str.length - 1).split('').reverse();   
     }
     return resP; 
@@ -54,9 +59,9 @@ const fn = (queries, intLength) => {
     for(const q of queries){
         //check to find queries[i]
         let num = createPalindromes(q - 1, intLength);
-        if(num.length == intLength){
-            res.push(num);
-        } else{
+        if(num.length == intLength){ //检查回文长度是否符合要求
+            res.push(+(num)); //把字符串转换为数字，
+        } else{ //如果不符合，加入-1
             res.push(-1);   
         }
     }
