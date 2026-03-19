@@ -77,3 +77,60 @@ var threeSum = function(nums) {
 
     return res;
 };
+
+// 子function
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function(nums) {
+    let res = [];
+
+    nums.sort((a, b) => a - b);
+
+    for(let i = 0; i < nums.length - 2; i++){
+        //remove duplicate num
+        if(i > 0 && nums[i] === nums[i - 1]){
+            continue;
+        }
+
+        let targetNum = 0 - nums[i];
+        let resultArray = findTwoSum(nums, i + 1, targetNum);
+
+        for(let arr of resultArray){
+            arr.push(nums[i]);
+            res.push(arr);
+        }
+    }
+    return res;
+};
+
+const findTwoSum = (nums, start, target) => {
+    let twoNumsArray = [];
+    let left = start;
+    let right = nums.length - 1;
+
+    while(left < right){
+        let sum = nums[left] + nums[right];
+        if(sum === target){
+            twoNumsArray.push([nums[left], nums[right]]);
+            left++;
+            right--;
+
+            // remove duplicate number of left and right pointer
+            while(left < right && nums[left] === nums[left - 1]){
+                left++;
+            }
+
+            while(left < right && nums[right] === nums[right + 1]){
+                right--;
+            }
+        } else if(sum < target){
+            left++;
+        } else {
+            right--;
+        }
+    }
+
+    return twoNumsArray;
+}
