@@ -42,19 +42,19 @@ All the pairs [ai, bi] are distinct.
  * @return {number[]}
  */
 var findOrder = function(numCourses, prerequisites) {
-    // create a map [{1: []}] 
+    // create a map [[], [], []] 长度是numCourses
     const graphArray = new Array(numCourses).fill(0).map(() => []);
     // create a array to conunt each task still need dependencies [0, 2, 1]
-    const indgree = new Array(numCourses).fill(0);
+    const indgree = new Array(numCourses).fill(0); // 一个节点还有多少“前置依赖”没完成
 
     // build tree
     for (const [taskA, taskB] of prerequisites){
-        graphArray[taskB].push(taskA); // [{taskB: [taskA, taskC]}] ==> finish taskB, then we could finish task A and task C
-        indgree[taskA]++;  // count task A has how many depeneces
+        graphArray[taskB].push(taskA); // [[taskD, taskC], [taskA]] ==> taskB 是 taskA 的前置课
+        indgree[taskA]++; // 记录 taskA 的前置课数量 （一个节点还有多少“前置依赖”没完成）
     }
 
-    console.log(graphArray)
-    console.log(indgree)
+    // console.log(graphArray)
+    // console.log(indgree)
 
     // collect the task with no dependencies need
     const queue = []
@@ -63,7 +63,7 @@ var findOrder = function(numCourses, prerequisites) {
             queue.push(i);
         }
     }
-    console.log(queue)
+    // console.log(queue)
 
     // BFS to travser other courses
     const res = [];
@@ -71,12 +71,12 @@ var findOrder = function(numCourses, prerequisites) {
     while(queue.length){
         const curr = queue.shift(); // start the task could without any dependencies (prerequisites)
         res.push(curr); // added into result
+        // console.log(graphArray[curr])
+        for(const next of graphArray[curr]){ // [taskB, taskC]
+            // console.log(next)
+            indgree[next]--; // could finish nextTask one by one, so need reduct the counts
 
-        // find next task we could start it
-        for(const next of graphArray[curr]){ // [taskA, taskC]
-            indgree[next]--; // reduce counts
-
-            // this task did not need more depences, could add queue 
+            // curr task did not more dependencies requirment, could finish ask next 
             if(indgree[next] === 0){
                 queue.push(next);
             }
