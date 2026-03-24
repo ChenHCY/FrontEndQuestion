@@ -36,16 +36,21 @@ All the pairs prerequisites[i] are unique.
  * @param {number[][]} prerequisites
  * @return {boolean}
  */
+/**
+ * @param {number} numCourses
+ * @param {number[][]} prerequisites
+ * @return {boolean}
+ */
 var canFinish = function(numCourses, prerequisites) {
     // create a map [[], [], []]
     const graphArray = new Array(numCourses).fill(0).map(() => []);
     // create a array to conunt each task still need dependencies [0, 2, 1]
-    const indgree = new Array(numCourses).fill(0);
+    const indgree = new Array(numCourses).fill(0); // 一个节点还有多少“前置依赖”没完成
 
     // build tree
     for (const [taskA, taskB] of prerequisites){
-        graphArray[taskA].push(taskB); // [[taskB, taskC], [taskD], ...] ==> taskB taskC 是 taskA 的前置课 / taskD 是 taskB 的前置课
-        indgree[taskB]++; // count taskB was other course prerequisites
+        graphArray[taskB].push(taskA); // [[taskC], [taskA], ...] ==> taskA 是 taskC 的前置课 / taskB 是 taskA 的前置课
+        indgree[taskA]++; // count taskB was other course prerequisites
     }
 
     console.log(graphArray)
