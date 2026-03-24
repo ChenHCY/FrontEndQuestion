@@ -37,21 +37,21 @@ All the pairs prerequisites[i] are unique.
  * @return {boolean}
  */
 var canFinish = function(numCourses, prerequisites) {
-    // create a map [{1: []}]
+    // create a map [[], [], []]
     const graphArray = new Array(numCourses).fill(0).map(() => []);
     // create a array to conunt each task still need dependencies [0, 2, 1]
     const indgree = new Array(numCourses).fill(0);
 
     // build tree
     for (const [taskA, taskB] of prerequisites){
-        graphArray[taskA].push(taskB); // [{taskA: [taskB, taskC]}]
+        graphArray[taskA].push(taskB); // [[taskB, taskC], [taskD], ...] ==> taskB taskC 是 taskA 的前置课 / taskD 是 taskB 的前置课
         indgree[taskB]++; // count taskB was other course prerequisites
     }
 
     console.log(graphArray)
     console.log(indgree)
 
-    // collect the task with no dependencies need
+    // collect the task with no dependencies needed
     const queue = []
     for(let i = 0; i < numCourses; i++){
         if(indgree[i] === 0){
