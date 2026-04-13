@@ -49,7 +49,7 @@ var canFinish = function(numCourses, prerequisites) {
 
     // build tree
     for (const [taskA, taskB] of prerequisites){
-        graphArray[taskB].push(taskA); // [[taskC], [taskA], ...] ==> taskA 是 taskC 的前置课 / taskB 是 taskA 的前置课 ==> 想学 taskB, 必须学完taskA
+        graphArray[taskB].push(taskA); // [[taskC], [taskA], ...] ==> taskA 是 taskC 的前置课 / taskB 是 taskA 的前置课 ==> 想学 taskA, 必须学完taskB
         indgree[taskA]++; // count taskB was other course prerequisites
     }
 
